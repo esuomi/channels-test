@@ -1,6 +1,6 @@
 (ns channel-test.core
   (:require [clojure.core.async :refer [chan <!!]]
-            [nordeaopenbanking.api.accounts :as accounts)
+            [nordeaopenbanking.api.accounts :as accounts])
   (:gen-class))
 
 ; start REPL (eg. `lein repl`) and run
