@@ -5,7 +5,7 @@
             [nordeaopenbanking.http :as http]))
 
 (def ^:private accounts-api-chan-in  (channels/create-in 10))
-(def ^:private accounts-api-chan-out (channels/create-out accounts-api-chan-in))
+(def ^:private accounts-api-chan-out (channels/create-out accounts-api-chan-in 100 :second))
 
 (defn accounts-api-call [out]
   (put! accounts-api-chan-in {:url "http://www.example.com/accounts"})  ; TODO: check if true/false to see if channel is closed

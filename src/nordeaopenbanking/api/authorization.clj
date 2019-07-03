@@ -6,7 +6,7 @@
 (defn timestamp [] (.toString (java.time.LocalTime/now)))
 
 (def ^:private authorize-api-chan-in  (channels/create-in 10))
-(def ^:private authorize-api-chan-out (channels/create-out authorize-api-chan-in))
+(def ^:private authorize-api-chan-out (channels/create-out authorize-api-chan-in 10 :minute))
 
 (defn authorize [out]
   (put! authorize-api-chan-in {:url "http://www.example.com/authorize"})  ; TODO: check if true/false to see if channel is closed

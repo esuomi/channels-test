@@ -9,5 +9,5 @@
 (defn create-in [n]
   (chan n))
 
-(defn create-out [in]
-  (-> in (throttle-chan 10 :minute 9) (global-api-throttler)))
+(defn create-out [in items per-unit]
+  (-> in (throttle-chan items per-unit (dec items)) (global-api-throttler)))
